@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".login"
     android:orientation="vertical"
-    android:background="@color/black">
+    android:background="@drawable/doc">
 
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/medusa_symbol"/>
+    <TextView
+        android:id="@+id/logo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello and Welcome back"
+        android:textColor="#FF9800"
+        android:textSize="20sp"
+        android:fontFamily="@font/bangers" />
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in to continue"/>
 </LinearLayout>
