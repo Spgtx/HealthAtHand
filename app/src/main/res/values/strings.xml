@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">HealthAtHand</string>
+    <string name="welcome">Welcome.</string>
+    <string name="signup_to_start_an_awesome_journey">SignUp to start an awesome journey</string>
+    <string name="full_name">Full name</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="phone_no">Phone No</string>
+    <string name="password">Password</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="already_have_an_account_login">Already have an account? LOGIN</string>
 </resources>
