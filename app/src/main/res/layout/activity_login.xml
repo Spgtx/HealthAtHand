@@ -6,23 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".login"
     android:orientation="vertical"
-    android:background="@drawable/doc">
+    android:padding="20dp"
+    android:background="#1A003C">
 
     <ImageView
+        android:layout_gravity="center"
         android:id="@+id/logo_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/medusa_symbol"/>
+        android:src="@drawable/pngegg4"
+        android:layout_marginBottom="30dp"
+        android:transitionName="logo_image"/>
     <TextView
+        android:layout_marginTop="15dp"
         android:id="@+id/logo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello and Welcome back"
         android:textColor="#FF9800"
         android:textSize="20sp"
-        android:fontFamily="@font/bangers" />
-    <androidx.appcompat.widget.Toolbar
+        android:fontFamily="@font/bangers"
+        android:transitionName="logo_text"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign in to continue"/>
+        android:text="Sign in to continue"
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:id="@+id/username"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:shadowColor="#FFF9F9"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/white"
+                android:visibility="visible"
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/white"
+                tools:visibility="visible" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:id="@+id/password"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:shadowColor="#FFF9F9"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/white"
+                android:visibility="visible"
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/white"
+                tools:visibility="visible"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:layout_gravity="right"
+            android:text="Forgot password?"
+            android:elevation="0dp"
+            android:layout_margin="5dp"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:layout_gravity="right"
+            android:text="Don't have an account? SIGN UP"
+            android:elevation="0dp"
+            android:textColor="#FF9800"
+            android:layout_margin="5dp"></Button>
+
+    </LinearLayout>
 </LinearLayout>
