@@ -18,25 +18,26 @@
         android:src="@drawable/pngegg4"
         android:layout_marginBottom="30dp"
         android:transitionName="logo_image"/>
+
     <TextView
-        android:layout_marginTop="-25dp"
         android:id="@+id/logo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-25dp"
+        android:fontFamily="@font/bangers"
         android:text="@string/welcome"
         android:textColor="#FF9800"
         android:textSize="50sp"
-        android:fontFamily="@font/bangers"
-        android:transitionName="logo_text"/>
+        android:transitionName="logo_text" />
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup_to_start_an_awesome_journey"
         android:textSize="18sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:transitionName="infor"/>
 
 
     <LinearLayout
@@ -47,17 +48,23 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/full_name"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeErrorColor="#FF0000"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
             app:boxStrokeColor="@color/white"
+            android:textColorHint="@color/white"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/full_name"
-                android:textColor="@color/white">
+                android:hint="@string/full_name"
+                android:textColor="@color/white"
+                android:inputType="text">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -69,12 +76,22 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeErrorColor="#FF0000"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+
+            app:counterMaxLength="15"
+            app:counterTextColor="@color/white"
+            android:textColorHint="@color/white"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/username"
-                android:textColor="@color/white">
+                android:hint="@string/username"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:transitionName="username">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -86,11 +103,16 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeErrorColor="#FF0000"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            android:textColorHint="@color/white"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email"
+                android:hint="Email"
                 android:textColor="@color/white"
                 android:inputType="textEmailAddress">
 
@@ -105,11 +127,19 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeErrorColor="#FF0000"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+
+            app:counterTextColor="@color/white"
+            app:counterMaxLength="10"
+            android:textColorHint="@color/white"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/phone_no"
+                android:hint="@string/phone_no"
                 android:textColor="@color/white"
                 android:inputType="phone">
 
@@ -123,32 +153,42 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="@color/white"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeErrorColor="#FF0000"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            android:textColorHint="@color/white">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/password"
+                android:hint="@string/password"
                 android:textColor="@color/white"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                android:transitionName="password">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
         <Button
+            android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up"
-            android:background="@color/black"
-            android:textColor="@color/white"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"></Button>
+            android:layout_marginBottom="5dp"
+            android:background="@color/black"
+            android:onClick="registerUser"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            android:transitionName="login"></Button>
 
 
 
 
         <Button
+            android:id="@+id/bck_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
@@ -156,7 +196,8 @@
             android:text="@string/already_have_an_account_login"
             android:elevation="0dp"
             android:textColor="#FF9800"
-            android:layout_margin="5dp"></Button>
+            android:layout_margin="5dp"
+            android:transitionName="no_acc"></Button>
 
     </LinearLayout>
 
