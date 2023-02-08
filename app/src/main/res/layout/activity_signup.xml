@@ -80,7 +80,6 @@
             app:boxStrokeErrorColor="#FF0000"
             app:boxCornerRadiusTopEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
-
             app:counterMaxLength="15"
             app:counterTextColor="@color/white"
             android:textColorHint="@color/white"
