@@ -19,7 +19,6 @@ public class Signup extends AppCompatActivity {
 
     TextInputLayout regName, regUsername, regEmail, regPhone_no, regPassword;
     Button callLogin, signup;
-
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -71,7 +70,6 @@ public class Signup extends AppCompatActivity {
         reference.child(username).setValue(helperClass);
 
     }
-
 
     //validation
     private Boolean ValidateName(){
