@@ -25,6 +25,7 @@ public class Signup extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
@@ -37,29 +38,6 @@ public class Signup extends AppCompatActivity {
         callLogin = findViewById(R.id.bck_login);
         signup = findViewById(R.id.signup);
 
-
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rootNode = FirebaseDatabase.getInstance();
-
-                //Get all the values in string
-                String name = regName.getEditText().getText().toString();
-                String username = regUsername.getEditText().getText().toString();
-                String email = regEmail.getEditText().getText().toString();
-                String phone_no = regPhone_no.getEditText().getText().toString();
-                String password = regPassword.getEditText().getText().toString();
-
-                UserHelperClass helperClass = new UserHelperClass(name, username, email, phone_no, password);
-
-                reference = rootNode.getReference("users");
-
-                reference.child(phone_no).setValue(helperClass);
-
-
-            }
-        });
-
         callLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,21 +49,15 @@ public class Signup extends AppCompatActivity {
     }
 
 
-    //save data to firebase button click
-    public void registerUser(View view){
-
-
-        if (!ValidateName() | !ValidateUsername() | !ValidateEmail() | !ValidatePhone_no() | !ValidatePassword()){
-            return;
-        }
-
-    }
-
     //validation
     private Boolean ValidateName(){
         String val = regName.getEditText().getText().toString();
         if(val.isEmpty()){
             regName.setError("Field cannot be empty");
+            return false;
+        }
+        else if(val.length()<5){
+            regUsername.setError("Username is too Short");
             return false;
         }
         else {
@@ -95,9 +67,9 @@ public class Signup extends AppCompatActivity {
         }
     }
 
-    private Boolean ValidateUsername(){
+    private Boolean ValidateUsername (){
         String val = regUsername.getEditText().getText().toString();
-        String noWhiteSpace = "\\A\\w{4,15}\\z";
+        String noWhiteSpace = "\\A\\w\\z";
 
         if(val.isEmpty()){
             regUsername.setError("Field cannot be empty");
@@ -105,6 +77,10 @@ public class Signup extends AppCompatActivity {
         }
         else if(val.length()>= 15){
             regUsername.setError("Username is too long");
+            return false;
+        }
+        else if(val.length()<5){
+            regUsername.setError("Username is too Short");
             return false;
         }
         else if (!val.matches(noWhiteSpace)){
@@ -143,6 +119,14 @@ public class Signup extends AppCompatActivity {
             regPhone_no.setError("Field cannot be empty");
             return false;
         }
+        else if(val.length()>10){
+            regPhone_no.setError("Phone no is too long");
+            return false;
+        }
+        else if(val.length()< 10){
+            regPhone_no.setError("Phone no is too short");
+            return false;
+        }
         else {
             regPhone_no.setError(null);
             regPhone_no.setErrorEnabled(false);
@@ -152,29 +136,60 @@ public class Signup extends AppCompatActivity {
 
     private Boolean ValidatePassword(){
         String val = regPassword.getEditText().getText().toString();
-        String passwordVal = "^" +
-                //"(?=.*[0-9])" +         //At least one Number
-                //"(?=.*[a-z])" +         //At least one small letter
-                //"(?=.*[A-Z])" +         //At least one capital letter
-                //"(?=.*[a-zA-Z])" +      //Any letter
-                //"(?=.*[@#$%^&+=])" +    //At least one special character
-                //"(?=\\S+$])" +          //No white space
-                //".{5,}" +              //At least 5 characters
-                "$";
+        String passwordVal = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
 
         if(val.isEmpty()){
             regPassword.setError("Field cannot be empty");
             return false;
         }
-        /*else if(!val.matches(passwordVal)){
+        else if(!val.matches(passwordVal)){
             regPassword.setError("Password is too weak");
             return false;
-        }*/
+        }
         else {
             regPassword.setError(null);
             regPassword.setEnabled(false);
             return true;
         }
     }
+
+
+    //save data to firebase button click
+    public void registerUser(View view){
+
+
+        if (!ValidateName() | !ValidateUsername() | !ValidateEmail() | !ValidatePhone_no() | !ValidatePassword()){
+            return;
+        }
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("users");
+
+                //Get all the values in string
+                String name = regName.getEditText().getText().toString();
+                String username = regUsername.getEditText().getText().toString();
+                String email = regEmail.getEditText().getText().toString();
+                String phone_no = regPhone_no.getEditText().getText().toString();
+                String password = regPassword.getEditText().getText().toString();
+
+                UserHelperClass helperClass = new UserHelperClass(name, username, email, phone_no, password);
+
+                reference.child(phone_no).setValue(helperClass);
+
+
+            }
+        });
+
+
+    }
+
+
+
 
 }
