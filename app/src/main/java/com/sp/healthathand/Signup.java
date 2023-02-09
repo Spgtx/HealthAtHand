@@ -29,8 +29,6 @@ public class Signup extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
 
-
-        rootNode = FirebaseDatabase.getInstance();
         regName = findViewById(R.id.name);
         regUsername = findViewById(R.id.username);
         regEmail = findViewById(R.id.email);
@@ -40,6 +38,27 @@ public class Signup extends AppCompatActivity {
         signup = findViewById(R.id.signup);
 
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance();
+
+                //Get all the values in string
+                String name = regName.getEditText().getText().toString();
+                String username = regUsername.getEditText().getText().toString();
+                String email = regEmail.getEditText().getText().toString();
+                String phone_no = regPhone_no.getEditText().getText().toString();
+                String password = regPassword.getEditText().getText().toString();
+
+                UserHelperClass helperClass = new UserHelperClass(name, username, email, phone_no, password);
+
+                reference = rootNode.getReference("users");
+
+                reference.child(phone_no).setValue(helperClass);
+
+
+            }
+        });
 
         callLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,15 +78,6 @@ public class Signup extends AppCompatActivity {
         if (!ValidateName() | !ValidateUsername() | !ValidateEmail() | !ValidatePhone_no() | !ValidatePassword()){
             return;
         }
-
-        //Get all the values in string
-        String name = regName.getEditText().getText().toString();
-        String username = regUsername.getEditText().getText().toString();
-        String email = regEmail.getEditText().getText().toString();
-        String phone_no = regPhone_no.getEditText().getText().toString();
-        String password = regPassword.getEditText().getText().toString();
-        UserHelperClass helperClass = new UserHelperClass(name, username, email, phone_no, password);
-        reference.child(username).setValue(helperClass);
 
     }
 
