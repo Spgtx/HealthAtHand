@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "664369494935",
-    "project_id": "healthathand-1a1f8",
-    "storage_bucket": "healthathand-1a1f8.appspot.com"
+    "project_number": "387721922288",
+    "project_id": "healthath-5a175",
+    "storage_bucket": "healthath-5a175.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:664369494935:android:ba39bc7e00c716cc3c62d2",
+        "mobilesdk_app_id": "1:387721922288:android:e1bae4485e1713d427a435",
         "android_client_info": {
           "package_name": "com.sp.healthathand"
         }
       },
       "oauth_client": [
         {
-          "client_id": "664369494935-h42fjnjaqugg2vkekoo9895har18uovd.apps.googleusercontent.com",
+          "client_id": "387721922288-fv2i8hpgc2iarql29joi8rt4iotmgfgb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCCWG7i9rP5A_uvVhGot11nMV1KVoeX8jE"
+          "current_key": "AIzaSyCxG_LwWAlTHYDgbG16tMCXvKpke2xopdA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "664369494935-h42fjnjaqugg2vkekoo9895har18uovd.apps.googleusercontent.com",
+              "client_id": "387721922288-fv2i8hpgc2iarql29joi8rt4iotmgfgb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
