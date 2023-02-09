@@ -55,11 +55,7 @@
             app:hintTextColor="@color/white"
             android:layout_height="wrap_content"
             android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            app:boxStrokeWidth="2dp"
-            app:boxStrokeErrorColor="#FF0000"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp">
+            android:textColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -86,11 +82,7 @@
             android:layout_height="wrap_content"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
-            app:passwordToggleEnabled="true"
-            app:boxStrokeWidth="2dp"
-            app:boxStrokeErrorColor="#FF0000"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp">
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
