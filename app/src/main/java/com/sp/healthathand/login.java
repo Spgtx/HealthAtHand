@@ -104,14 +104,7 @@ public class login extends AppCompatActivity {
         }
     }
 
-    private void loginUser(View view){
-        if(!ValidateUsername() | !ValidatePassword()){
-            return;
-        }
-        else {
-            isUser();
-        }
-    }
+
 
     private void isUser() {
         String UserEnteredUsername = username.getEditText().getText().toString().trim();
@@ -131,6 +124,7 @@ public class login extends AppCompatActivity {
 
                     String passwordFromDB = snapshot.child(UserEnteredUsername).child("password").getValue(String.class);
 
+                    assert passwordFromDB != null;
                     if(passwordFromDB.equals(UserEnteredPassword)){
 
                         username.setError(null);
@@ -170,16 +164,18 @@ public class login extends AppCompatActivity {
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(),Dashboard.class);
-                startActivity(intent);
 
-            }
-        });
     }
+
+    private void loginUser(View view){
+        if(!ValidateUsername() | !ValidatePassword()){
+            return;
+        }
+        else {
+            isUser();
+        }
+        }
 
 
 
