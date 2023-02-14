@@ -12,6 +12,11 @@
         android:theme="@style/Theme.HealthAtHand"
         tools:targetApi="31">
         <activity
+            android:name=".Doc_list"
+            android:exported="false"
+            android:label="@string/title_activity_doc_list"
+            android:theme="@style/Theme.HealthAtHand.NoActionBar" />
+        <activity
             android:name=".UserProfile"
             android:exported="false" />
         <activity
